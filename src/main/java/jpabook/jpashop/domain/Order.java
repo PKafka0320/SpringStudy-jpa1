@@ -1,7 +1,9 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -12,6 +14,7 @@ import java.util.List;
 @Table(name = "orders")
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id
@@ -65,7 +68,10 @@ public class Order {
     }
 
     /* business logic */
-    /** cancel order */
+
+    /**
+     * cancel order
+     */
     public void cancel() {
         if (delivery.getStatus() == DeliveryStatus.COMP) {
             throw new IllegalStateException("cannot cancel already delivered item.");
@@ -78,7 +84,10 @@ public class Order {
     }
 
     /* search logic */
-    /** search total order price */
+
+    /**
+     * search total order price
+     */
     public int getTotalPrice() {
         int totalPrice = 0;
         for (OrderItem orderItem : orderItems) {

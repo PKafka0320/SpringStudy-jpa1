@@ -2,13 +2,16 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "order_item")
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -40,6 +43,7 @@ public class OrderItem {
     }
 
     /*business logic*/
+
     /**
      * cancel order
      */
@@ -48,6 +52,7 @@ public class OrderItem {
     }
 
     /*search logic*/
+
     /**
      * search total order price
      */

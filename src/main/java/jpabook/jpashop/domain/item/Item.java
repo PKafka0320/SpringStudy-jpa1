@@ -35,7 +35,7 @@ public abstract class Item {
      * increase stock
      */
     public void addStock(int stockQuantity) {
-        this.stockQuantity = stockQuantity;
+        this.stockQuantity += stockQuantity;
     }
 
     /**
